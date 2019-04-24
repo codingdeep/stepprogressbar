@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Step Progressbar</title>
+    <style>
+        .progressbar-container{
+            width: 600px;
+            margin: 200px auto;
+            display: flex;
+            justify-content: space-between;
+            counter-reset: step
+        }
+        .progressbar-container span{
+            display: block;
+            position: relative;
+            width: 25%;
+            text-align: center
+    
+        }
+        .progressbar-container span:before{
+            position: absolute;
+            left: 50%;
+            width: 40px;
+            top: -60px;
+            content: counter(step);
+            counter-increment: step;
+            text-align: center;
+            border: 1px solid #ddd;
+            border-radius: 50%;
+            line-height:40px;
+            font-size: 16px;
+            font-family: tahoma;
+            background: #fff;
+            margin-left: -20px
+
+        }
+        .progressbar-container span:after{
+            position: absolute;
+            left: -50%;
+            top: -40px;
+            width: 100%;
+            height: 1px;
+            content: '';
+            background: #ddd;
+            z-index: -1
+        }
+        .progressbar-container span:nth-child(1):after{
+            content: none
+        }
+    </style>
+</head>
+<body>
+    <div class="progressbar-container">
+        <span>Step 1</span>
+        <span>Step 2</span>
+        <span>Step 3</span>
+        <span>Step 4</span>
+    </div>
+</body>
+</html>
